@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:id="@+id/progress_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/progress_view_back"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_color="#a6c1ce"
+            app:cpv_indeterminate="false"
+            app:cpv_progress="100"
+            app:cpv_thickness="3dp" />
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/progress_view"
+            android:layout_width="129dp"
+            android:layout_height="129dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_color="#0e90c1"
+            app:cpv_indeterminate="false"
+            app:cpv_progress="0"
+            app:cpv_thickness="5dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/tv_current_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="50sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/tv_current_value"
+                android:text="@string/current_value"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_next_reminding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/progress_holder"
+        android:drawableLeft="@mipmap/alarm_clock"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="18:55"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        android:id="@+id/tv_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_next_reminding"
+        android:layout_toRightOf="@id/progress_holder"
+        android:drawableLeft="@mipmap/finish_flag"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="2475 ml."
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        android:id="@+id/tv_current"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_target"
+        android:layout_toRightOf="@id/progress_holder"
+        android:drawableLeft="@mipmap/emptyt_rash"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="0 ml."
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/et_progress_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_holder"
+        android:hint="@string/progress_hint"
+        android:inputType="numberDecimal" />
+
+    <LinearLayout
+        android:id="@+id/ll_buttons_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_progress_input"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_set_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add" />
+
+        <Button
+            android:id="@+id/btn_remove_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/delete" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_buttons_holder"/>
+
+</RelativeLayout>
